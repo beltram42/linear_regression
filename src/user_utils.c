@@ -6,35 +6,35 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:48:14 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/07 17:59:30 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/08 15:08:50 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lr.h"
 #include "../myenums.h"
 
-int	ft_up_shell(long double fv[24])
+int	ft_up_shell(long double fv[22])
 {
 	ft_userprice(fv);
 	return (0);
 }
 
-void	ft_userprice(long double fv[24])
+void	ft_userprice(long double fv[22])
 {
 	char	*str;
 	char	*endptr;
 
-	printf("please enter #km from 0 to 397134:\n");
+	printf("please enter #km from 0 to 396270:\n");
 	str = ft_malgets(6);
 	endptr = str;
 	fv[userkm] = ft_strtol(str, &endptr, 10);
-	if (endptr == str || fv[userkm] > 397134)
+	if (endptr == str || fv[userkm] > 396270)
 	{
-		printf("#km should be less than 397134\n");
-		fv[userkm] = 397135;
+		printf("#km should be less than 396270\n");
+		fv[userkm] = 396271;
 		str = ft_free(&str);
 		fv[userprice] = 0;
-		printf("car price for more than 397134km is: 0\n");
+		printf("car price for more than 396270km is: 0\n");
 		return ;
 	}
 	else

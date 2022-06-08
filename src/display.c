@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:34:35 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/06 21:09:53 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/07 22:10:40 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ enum e_imax
 	y,
 };
 
-void	ft_display0(void *id[2], long double fv[24], long double fdb[9][24])
+void	ft_display0(void *id[2], long double fv[22], long double fdb[9][24])
 {
 	int		iv[4];
 
@@ -36,7 +36,7 @@ void	ft_display0(void *id[2], long double fv[24], long double fdb[9][24])
 	ft_tr_line(id, iv, fv);
 }
 
-void	ft_display1(void *id[2], long double fv[24])
+void	ft_display1(void *id[2], long double fv[22])
 {
 	int		iv[4];
 	int		max[2];

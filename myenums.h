@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 11:29:34 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/06 21:03:12 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/07 22:07:24 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef enum e_fdb
 
 typedef enum e_fvar
 {
-	iteration_cut,
 	sumkm,
 	sumprice,
 	sumprod,
@@ -44,7 +43,6 @@ typedef enum e_fvar
 	costa,
 	costb,
 	costc,
-	costd,
 	final_b,
 	dtt0,
 	dtt1,

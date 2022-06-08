@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 14:35:14 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/07 17:58:52 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/08 14:56:42 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_exit(void *id[2])
 int	main(void)
 {
 	long double	fdb[9][24];
-	long double	fv[24];
+	long double	fv[22];
 	void		*id[2];
 	int			i;
 
@@ -51,7 +51,6 @@ int	main(void)
 		i++;
 	}
 	printf("\n");
-	printf("fv[iteration_cut] = %Lf\n", fv[iteration_cut]);
 	printf("fv[sumkm] = %Lf\n", fv[sumkm]);
 	printf("fv[sumprice] = %Lf\n", fv[sumprice]);
 	printf("fv[sumprod] = %Lf\n", fv[sumprod]);
@@ -67,22 +66,21 @@ int	main(void)
 	printf("fv[t0] = %Lf\n", fv[t0]);
 	printf("fv[t1] = %Lf\n", fv[t1]);
 	printf("\n");
-	/*ft_corr_rate(fv, fdb);
-	printf("fv[r] = %Lf\n", fv[r]);*/
+	ft_corr_coeff(fv, fdb);
+	printf("fv[r] = %Lf\n", fv[r]);
 	printf("\n");
 	ft_regr(fdb, fv);
-	/*printf("fv[costa] = %Lf\n", fv[costa]);
+	printf("fv[costa] = %Lf\n", fv[costa]);
 	printf("fv[costb] = %Lf\n", fv[costb]);
 	printf("fv[costc] = %Lf\n", fv[costc]);
-	printf("fv[costd] = %Lf\n", fv[costd]);
 	printf("fv[final_b] = %Lf\n", fv[final_b]);
 	printf("fv[dtt0] = %Lf\n", fv[dtt0]);
 	printf("fv[dtt1] = %Lf\n", fv[dtt1]);
 	printf("fv[tt0] = %Lf\n", fv[tt0]);
 	printf("fv[tt1] = %Lf\n", fv[tt1]);
 	printf("lf[userkm] = %Lf\n", fv[userkm]);
-	printf("lf[userprice] = %Lf\n", fv[userprice]);*/
-	//ft_userprice(fv);
+	printf("lf[userprice] = %Lf\n", fv[userprice]);
+	ft_userprice(fv);
 	return (0);
 }
 

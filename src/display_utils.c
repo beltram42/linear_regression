@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 20:59:44 by anthonylamb       #+#    #+#             */
-/*   Updated: 2022/06/06 21:09:53 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/07 22:10:40 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	ft_tr_dots(void *id[2], int iv[4], long double fdb[9][24])
 	}
 }
 
-void	ft_tr_line(void *id[2], int iv[4], long double fv[24])
+void	ft_tr_line(void *id[2], int iv[4], long double fv[22])
 {
 	ft_bzero(iv, sizeof(int) * 4);
 	while (iv[ya] >= 0)
@@ -95,7 +95,7 @@ void	ft_tr_line(void *id[2], int iv[4], long double fv[24])
 	}
 }
 
-void	ft_tr_userparam(void *id[2], int iv[4], int max[2], long double fv[24])
+void	ft_tr_userparam(void *id[2], int iv[4], int max[2], long double fv[22])
 {
 	iv[xa] = fv[userkm] / 400;
 	iv[ya] = fv[userprice] / 10;
