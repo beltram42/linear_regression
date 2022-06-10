@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 18:09:09 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/08 17:30:35 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/10 19:24:39 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,34 @@ void	ft_regr(long double fdb[9][24], long double fv[22])
 	}
 	printf("diffn = %LE\n", diff);
 	printf("iteration# = %d\n", j);
+}
+
+void	ft_42lr(long double fdb[9][24], long double fv[22])
+{
+	long double	tmpt0;
+	long double	tmpt1;
+	long double	tmp0;
+	long double	tmp1;
+	long double	lr;
+	int			i;
+
+	i = 0;
+	tmp0 = 0.0;
+	tmp1 = 0.0;
+	while (i < 24)
+	{
+		tmp0 += fv[t1] * fdb[km][i] + fv[t0] - fdb[price][i];
+		tmp1 += (fv[t1] * fdb[km][i] + fv[t0] - fdb[price][i]) * fdb[km][i];
+		i++;
+	}
+	lr = (24 * fv[tt0]) / tmp0;
+	printf("42 formula lr (via tt0) = %Lf\n", lr);
+	lr = (24 * fv[tt1]) / tmp1;
+	printf("42 formula lr (via tt1) = %Lf\n", lr);
+	tmpt0 = fv[learning_rate] * (1/ 24) * tmp0;
+	printf("tempt0 = %Lf\n", tmpt0 * 100000000.0);
+	tmpt1 = fv[learning_rate] * (1/ 24) * tmp1;
+	printf("tempt1 = %Lf\n", tmpt1 * 100000000.0);
 }
 
 /*

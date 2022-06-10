@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 14:35:14 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/08 14:56:42 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/10 19:32:50 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	main(void)
 	printf("fv[t0] = %Lf\n", fv[t0]);
 	printf("fv[t1] = %Lf\n", fv[t1]);
 	printf("\n");
-	ft_corr_coeff(fv, fdb);
+	ft_corr_coeff(fdb, fv);
 	printf("fv[r] = %Lf\n", fv[r]);
 	printf("\n");
 	ft_regr(fdb, fv);
@@ -81,6 +81,15 @@ int	main(void)
 	printf("lf[userkm] = %Lf\n", fv[userkm]);
 	printf("lf[userprice] = %Lf\n", fv[userprice]);
 	ft_userprice(fv);
+	ft_42lr(fdb, fv);
+	id[0] = mlx_init();
+	id[1] = mlx_new_window(id[0], 1200, 1100, "LR_chart");
+	ft_display0(id, fv, fdb);
+	mlx_key_hook(id[1], ft_up_shell, fv);
+	ft_display1(id, fv);
+	mlx_hook(id[1], 17, 0, ft_exit, id);
+	mlx_key_hook(id[1], ft_exit, id);
+	mlx_loop(id[0]);
 	return (0);
 }
 
