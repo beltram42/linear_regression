@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_utils.c                                    :+:      :+:    :+:   */
+/*   display_utils0.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 20:59:44 by anthonylamb       #+#    #+#             */
-/*   Updated: 2022/06/10 20:57:59 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/12 17:31:07 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void	ft_tr_landmark(void *id[2], int iv[4])
 	while (iv[ya] <= 900)
 	{
 		ft_originfix(iv);
-		mlx_pixel_put(id[0], id[1], iv[xb], iv[yb], 0xa009ae51);
+		mlx_pixel_put(id[0], id[1], iv[xb], iv[yb], 0xa0ffffff);
 		if (iv[ya] > 0 && iv[yb] == (iv[yb] / 100) * 100)
 		{
-			mlx_pixel_put(id[0], id[1], iv[xb] - 1, iv[yb], 0xa009ae51);
-			mlx_pixel_put(id[0], id[1], iv[xb] + 1, iv[yb], 0xa009ae51);
+			mlx_pixel_put(id[0], id[1], iv[xb] - 1, iv[yb], 0xa0ffffff);
+			mlx_pixel_put(id[0], id[1], iv[xb] + 1, iv[yb], 0xa0ffffff);
 		}
 		iv[ya] += 1;
 	}
@@ -51,11 +51,11 @@ void	ft_tr_landmark(void *id[2], int iv[4])
 	while (iv[xa] <= 1000)
 	{
 		ft_originfix(iv);
-		mlx_pixel_put(id[0], id[1], iv[xb], iv[yb], 0xa009ae51);
+		mlx_pixel_put(id[0], id[1], iv[xb], iv[yb], 0xa0ffffff);
 		if (iv[xa] > 0 && iv[xb] == (iv[xb] / 100) * 100)
 		{
-			mlx_pixel_put(id[0], id[1], iv[xb], iv[yb] - 1, 0xa009ae51);
-			mlx_pixel_put(id[0], id[1], iv[xb], iv[yb] + 1, 0xa009ae51);
+			mlx_pixel_put(id[0], id[1], iv[xb], iv[yb] - 1, 0xa0ffffff);
+			mlx_pixel_put(id[0], id[1], iv[xb], iv[yb] + 1, 0xa0ffffff);
 		}
 		iv[xa] += 1;
 	}
@@ -69,55 +69,53 @@ void	ft_tr_dots(void *id[2], int iv[4], long double fdb[9][24])
 	j = 0;
 	while (j < 24)
 	{
-		iv[xa] = (int)(fdb[km][j] / 250);
+		iv[xa] = (int)(fdb[km][j] / 500);
 		iv[ya] = (int)(fdb[price][j] / 10);
 		ft_originfix(iv);
 		d = -1;
 		while (d <= 1)
 		{
-			mlx_pixel_put(id[0], id[1], iv[xb] + d, iv[yb], 0xa009ae51);
-			mlx_pixel_put(id[0], id[1], iv[xb], iv[yb] + d, 0xa009ae51);
+			mlx_pixel_put(id[0], id[1], iv[xb] + d, iv[yb], 0xa0ff1a00);
+			mlx_pixel_put(id[0], id[1], iv[xb], iv[yb] + d, 0xa0ff1a00);
 			d++;
 		}
 		j++;
 	}
 }
 
+void	ft_labels(void *id[2], int iv[4])
+{
+	char	*str;
+	int		i;
+
+	ft_bzero(iv, sizeof(int) * 4);
+	i = 0;
+	while (i < 10)
+	{
+		iv[xa] = i * 50000;
+		str = ft_itoa(iv[xa]);
+		iv[xa] /= 500;
+		ft_originfix(iv);
+		mlx_string_put(id[0], id[1], iv[xb], 1040, 0xa0ffffff, str);
+		iv[ya] = i * 1000;
+		str = ft_itoa(iv[ya]);
+		iv[ya] /= 10;
+		ft_originfix(iv);
+		mlx_string_put(id[0], id[1], 70, iv[yb], 0xa0ffffff, str);
+		printf("yb = %d", iv[yb]);
+		i++;
+	}
+}
+
 void	ft_tr_line(void *id[2], int iv[4], long double fv[22])
 {
 	ft_bzero(iv, sizeof(int) * 4);
-	while (iv[ya] >= 0)
+	while (iv[xa] < 396271.0 && iv[ya] >= 0)
 	{
-		iv[ya] = (int)(10 * (fv[t0] + (fv[t1] * iv[xa] / 250)));
+		iv[ya] = (int)((fv[t0] + (fv[t1] * iv[xa] * 500)) / 10);
 		ft_originfix(iv);
 		mlx_pixel_put(id[0], id[1], iv[xb], iv[yb], 0xa009ae51);
 		iv[xa] += 1;
 	}
 }
 
-void	ft_tr_userparam(void *id[2], int iv[4], int max[2], long double fv[22])
-{
-	iv[xa] = fv[userkm] / 400;
-	iv[ya] = fv[userprice] / 10;
-	ft_originfix(iv);
-	max[x] = iv[xb];
-	max[y] = iv[yb];
-	ft_bzero(iv, sizeof(int) * 4);
-	ft_originfix(iv);
-	while (iv[xb] <= max[x] && iv[yb] <= max[y])
-	{
-		ft_originfix(iv);
-		while (iv[xb] <= max[x])
-		{
-			if ((iv[xb] % 2) == 1)
-				mlx_pixel_put(id[0], id[1], iv[xb], max[y], 0xa009ae51);
-			iv[xa] += 1;
-		}
-		while (iv[yb] <= y)
-		{
-			if ((y % 2) == 1)
-				mlx_pixel_put(id[0], id[1], max[x], iv[yb], 0xa009ae51);
-			iv[ya] += 1;
-		}
-	}
-}

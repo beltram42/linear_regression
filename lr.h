@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:04:32 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/10 17:06:04 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/12 16:58:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	ft_corr_coeff(long double fdb[9][24], long double fv[22]);
 void	ft_display0(void *id[2], long double fv[22], long double fdb[9][24]);
 void	ft_originfix(int iv[4]);
 void	ft_tr_landmark(void *id[2], int iv[4]);
+void	ft_labels(void *id[2], int iv[4]);
 void	ft_tr_dots(void *id[2], int iv[4], long double fdb[9][24]);
 void	ft_tr_line(void *id[2], int iv[4], long double fv[22]);
 int		ft_up_shell(long double fv[22]);

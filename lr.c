@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 14:35:14 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/10 19:32:50 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/12 17:20:53 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	main(void)
 	printf("lf[userkm] = %Lf\n", fv[userkm]);
 	printf("lf[userprice] = %Lf\n", fv[userprice]);
 	ft_userprice(fv);
-	ft_42lr(fdb, fv);
+	//ft_42lr(fdb, fv);
 	id[0] = mlx_init();
 	id[1] = mlx_new_window(id[0], 1200, 1100, "LR_chart");
 	ft_display0(id, fv, fdb);

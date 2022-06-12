@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:34:35 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/07 22:10:40 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/12 18:16:17 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_display0(void *id[2], long double fv[22], long double fdb[9][24])
 
 	ft_bzero(iv, sizeof(int) * 4);
 	ft_tr_landmark(id, iv);
+	ft_labels(id, iv);
 	ft_tr_dots(id, iv, fdb);
 	ft_tr_line(id, iv, fv);
 }
@@ -39,20 +40,7 @@ void	ft_display0(void *id[2], long double fv[22], long double fdb[9][24])
 void	ft_display1(void *id[2], long double fv[22])
 {
 	int		iv[4];
-	int		max[2];
-	int		len;
-	char	*s1;
-	char	*s2;
 
-	s1 = ft_itoa(fv[userkm]);
-	len = strlen(s1);
-	*(s1 + len) = ',';
-	*(s1 + len +1) = ' ';
-	*(s1 + len + 2) = '\0';
-	s2 = ft_itoa(fv[userprice]);
-	s1 = ft_strjoin(s1, s2);
 	ft_bzero(iv, sizeof(int) * 4);
-	ft_tr_userparam(id, iv, max, fv);
-	mlx_string_put(id[0], id[1], max[x], iv[yb], 0xa009ae51, s1);
-	s1 = ft_free(&s1);
+	ft_usrlabel(id, iv, fv);
 }
