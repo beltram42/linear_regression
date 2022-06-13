@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strspncspn.c                                    :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 18:51:11 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/13 09:58:30 by alambert         ###   ########.fr       */
+/*   Created: 2022/06/13 09:46:04 by alambert          #+#    #+#             */
+/*   Updated: 2022/06/13 10:47:53 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib42.h"
 
-int	ft_strspncspn(const char *str, const char *set, int gear)
+char	*ft_strncpy(char *dst, const char *src, size_t maxlen)
 {
-	const char	*p;
-	const char	*s;
+	size_t	srclen;
 
-	p = str;
-	while (*p)
+	srclen = ft_strnlen(src, maxlen);
+	if (srclen < maxlen)
 	{
-		s = set;
-		s = ft_strchr(s, *p);
-		if (s == 0 && gear == 1)
-			break ;
-		if (s != 0 && gear == -1)
-			break ;
-		else
-			p++;
+		ft_memcpy(dst, src, srclen);
+		ft_memset(dst + srclen, 0, maxlen - srclen);
 	}
-	return (p - str);
+	else
+		ft_memcpy(dst, src, maxlen);
+	return (dst);
 }
-
-/*
-	strspn : gear = 1
-	strcspn : gear = -1
-	strlen : set = ""
-*/

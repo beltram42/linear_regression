@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:45:00 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/05 19:20:18 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/13 10:49:51 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,19 @@ double		ft_smd(double a, double b);
 float		ft_smf(float a, float b);
 long double	ft_smld(long double a, long double b);
 char		**ft_split(char const *s, char c);
+char		*ft_strcat(char *dst, const char *src);
 char		*ft_strchr(const char *str, int c);
+char		*ft_strcpy(char *dst, const char *src);
 char		*ft_strdup(const char *str);
 void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 char		*ft_strjoin(char *s1, char *s2);
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char		*ft_strncat(char *s1, const char *s2, size_t n);
 size_t		ft_strlen(const char *str);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+char		*ft_strncpy(char *dst, const char *src, size_t maxlen);
 size_t		ft_strnlen(const char *s, size_t maxlen);
 char		*ft_strnstr(const char *str, const char *to_find, size_t n);
 char		*ft_strpbrk(const char *str, const char *set);

@@ -6,7 +6,7 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/24 18:46:28 by alambert          #+#    #+#              #
-#    Updated: 2022/06/05 19:20:10 by alambert         ###   ########.fr        #
+#    Updated: 2022/06/13 10:49:03 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,13 +54,17 @@ FILES = ft_absf.c \
 		ft_sdiv.c \
 		ft_smult.c \
 		ft_split.c \
+		ft_strcat.c \
 		ft_strchr.c \
+		ft_strcpy.c \
 		ft_strdup.c \
 		ft_striteri.c \
 		ft_strjoin.c \
 		ft_strlcat.c \
 		ft_strlcpy.c \
 		ft_strlen.c \
+		ft_strncat.c \
+		ft_strncpy.c \
 		ft_strmapi.c \
 		ft_strncmp.c \
 		ft_strnlen.c \

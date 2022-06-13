@@ -6,14 +6,14 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/05 11:54:36 by alambert          #+#    #+#              #
-#    Updated: 2022/06/12 17:02:09 by alambert         ###   ########.fr        #
+#    Updated: 2022/06/13 14:53:50 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = lr
 MLX = ./mlx/libmlx.a
 L42 = ./lib42/lib42.a
-CC = clang
+CC = clang 
 
 SRC =	lr.c \
 		./src/data_utils.c \
@@ -25,7 +25,7 @@ SRC =	lr.c \
 
 SEC = 20
 OBJ = $(SRC:.c=.o)
-CFLAGS = -D SECONDS=$(SEC)
+CFLAGS = -g3 -Wall -Wextra -Werror -D SECONDS=$(SEC)
 FL_MLX = -ldl -lmlx -Lmlx -lm -lXext -lX11 -L/usr/lib/aarch64 -Imlx mlx/libmlx.a
 
 RM = rm -rf
@@ -51,7 +51,7 @@ fclean: clean
 	$(RM) $(NAME)
 
 leaks: $(NAME)
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
+	valgrind ./lr --leak-check=full --show-leak-kinds=all --track-origins=yes
 
 re: fclean all
 

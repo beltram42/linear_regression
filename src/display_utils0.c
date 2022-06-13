@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 20:59:44 by anthonylamb       #+#    #+#             */
-/*   Updated: 2022/06/12 17:31:07 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/13 14:50:09 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,13 @@ void	ft_labels(void *id[2], int iv[4])
 		iv[xa] /= 500;
 		ft_originfix(iv);
 		mlx_string_put(id[0], id[1], iv[xb], 1040, 0xa0ffffff, str);
+		free(str);
 		iv[ya] = i * 1000;
 		str = ft_itoa(iv[ya]);
 		iv[ya] /= 10;
 		ft_originfix(iv);
 		mlx_string_put(id[0], id[1], 70, iv[yb], 0xa0ffffff, str);
-		printf("yb = %d", iv[yb]);
+		free(str);
 		i++;
 	}
 }

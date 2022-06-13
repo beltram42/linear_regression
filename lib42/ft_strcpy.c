@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strspncspn.c                                    :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 18:51:11 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/13 09:58:30 by alambert         ###   ########.fr       */
+/*   Created: 2022/06/13 09:39:32 by alambert          #+#    #+#             */
+/*   Updated: 2022/06/13 09:45:39 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib42.h"
 
-int	ft_strspncspn(const char *str, const char *set, int gear)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	const char	*p;
-	const char	*s;
+	size_t	len;
 
-	p = str;
-	while (*p)
-	{
-		s = set;
-		s = ft_strchr(s, *p);
-		if (s == 0 && gear == 1)
-			break ;
-		if (s != 0 && gear == -1)
-			break ;
-		else
-			p++;
-	}
-	return (p - str);
+	len = ft_strlen(src);
+	ft_memcpy(dst, src, len + 1);
+	return (dst);
 }
-
-/*
-	strspn : gear = 1
-	strcspn : gear = -1
-	strlen : set = ""
-*/
