@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 20:59:44 by anthonylamb       #+#    #+#             */
-/*   Updated: 2022/06/13 15:59:09 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/13 19:31:11 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,16 @@ void	ft_tr_userparam(void *id[2], int iv[4], int max[2], long double fv[22])
 	}
 }
 
-void	ft_usrlabel(void *id[2], int iv[4], long double fv[22])
+void	ft_usrlabel(void *id[2], int iv[4], long double fv[22], char *dst)
 {
 	char	*s1;
 	char	*s2;
-	char	*s3;
 	int		len0;
 
-	s3 = NULL;
 	s2 = NULL;
 	s1 = "km = , price = ";
 	len0 = ft_strspncspn(s1, ",", -1);
-	ft_strncat(s3, s1, len0);
+	ft_strncat(dst, s1, len0);
 	/*
 	s2 = ft_itoa(fv[userkm]);
 	ft_strcat(s3, s2);

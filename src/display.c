@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:34:35 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/12 18:16:17 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/13 19:32:05 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ void	ft_display0(void *id[2], long double fv[22], long double fdb[9][24])
 void	ft_display1(void *id[2], long double fv[22])
 {
 	int		iv[4];
+	char	*dst;
 
 	ft_bzero(iv, sizeof(int) * 4);
-	ft_usrlabel(id, iv, fv);
+	dst = NULL;
+	ft_usrlabel(id, iv, fv, dst);
 }
