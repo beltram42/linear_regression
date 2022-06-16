@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 20:59:44 by anthonylamb       #+#    #+#             */
-/*   Updated: 2022/06/13 19:31:11 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/16 21:24:58 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,26 +54,19 @@ void	ft_tr_userparam(void *id[2], int iv[4], int max[2], long double fv[22])
 	}
 }
 
-void	ft_usrlabel(void *id[2], int iv[4], long double fv[22], char *dst)
+void	ft_usrlabel(void *id[2], int iv[4], long double fv[22])
 {
-	char	*s1;
 	char	*s2;
-	int		len0;
+	char	*s1;
 
-	s2 = NULL;
-	s1 = "km = , price = ";
-	len0 = ft_strspncspn(s1, ",", -1);
-	ft_strncat(dst, s1, len0);
-	/*
-	s2 = ft_itoa(fv[userkm]);
-	ft_strcat(s3, s2);
-	ft_strcat(s3, s1 + len0);
-	free(s2);
-	s2 = ft_itoa(fv[userprice]);
-	ft_strcat(s3, s2);
-	free(s2);*/
+	s1 = ft_itoa((int)fv[userkm]);
+	s1 = ft_strcat(s1, ", ");
+	s2 = ft_itoa((int)fv[userprice]);
+	s1 = ft_strcat(s1, s2);
+	s2 = ft_free(&s2);
 	iv[xa] = fv[userkm] / 500;
 	iv[ya] = fv[userprice] / 10;
 	ft_originfix(iv);
-	mlx_string_put(id[0], id[1], iv[xb] + 10, iv[yb] + 10, 0xa009ae51, s2);
+	mlx_string_put(id[0], id[1], iv[xb] + 10, iv[yb] - 10, 0xa009ae51, s1);
+	s1 = ft_free(&s1);
 }

@@ -1,24 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/13 10:34:57 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/16 17:49:26 by alambert         ###   ########.fr       */
+/*   Created: 2021/12/08 18:51:32 by alambert          #+#    #+#             */
+/*   Updated: 2022/06/16 19:42:40 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib42.h"
 
-char	*ft_strcat(char *dst, const char *src)
+char	*ft_itoa(int i)
 {
-	size_t	dstlen;
-	size_t	srclen;
+	static char	buf[9 + 2];
+	char		*p;
 
-	dstlen = ft_strlen(dst);
-	srclen = ft_strlen(src);
-	ft_memcpy(dst + dstlen, src, srclen + 1);
-	return (dst);
+	ft_bzero(buf, sizeof(char) * 11);
+	p = buf + 9 + 1;
+	if (i >= 0)
+	{
+		while (i != 0)
+		{
+			*--p = '0' + (i % 10);
+			i /= 10;
+		}
+		return (p);
+	}
+	else
+	{
+		while (i != 0)
+		{
+			*--p = '0' - (i % 10);
+			i /= 10;
+		}
+		*--p = '-';
+	}
+	return (p);
 }
