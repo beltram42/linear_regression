@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 18:51:32 by alambert          #+#    #+#             */
-/*   Updated: 2022/05/08 19:51:18 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/16 23:40:53 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,16 @@ int	ft_timer(int n)
 void	ft_itok(int n, char *str)
 {
 	long	c;
-	char	buffer;
+	char	buf;
 
 	c = n;
-	buffer = 0;
+	buf = 0;
 	if (c < 0)
 		c = -c;
 	if (c / 10)
 		ft_itok(c / 10, str - 1);
-	buffer = c % 10 + '0';
-	*str = buffer;
+	buf = c % 10 + '0';
+	*str = buf;
 }
 
 char	*ft_itoa(int n)
