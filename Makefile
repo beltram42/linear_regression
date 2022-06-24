@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    Makefilesave                                       :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/05 11:54:36 by alambert          #+#    #+#              #
-#    Updated: 2022/06/16 23:39:51 by alambert         ###   ########.fr        #
+#    Updated: 2022/06/16 23:21:38 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,16 +30,14 @@ FL_MLX = -ldl -lmlx -Lmlx -lm -lXext -lX11 -L/usr/lib/aarch64 -Imlx mlx/libmlx.a
 
 RM = rm -rf
 
-all: mlx l42 $(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJ) $(MLX) $(L42)
+$(NAME): $(OBJ)
+	make re -C ./mlx
+	make re -C ./lib42
 	$(CC) $(CFLAGS) $(FL_MLX) $(OBJ) -Llib42 $(L42) -o $(NAME) $(MLX)
 
-mlx: 
-	make -C ./mlx
 
-l42 : 
-	make -C ./lib42/
 
 %.o: %.c
 	${CC} ${CFLAGS} -c $< -o $@

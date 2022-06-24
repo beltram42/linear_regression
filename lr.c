@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 14:35:14 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/16 22:18:52 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/24 16:11:17 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	main(void)
 	id[0] = mlx_init();
 	id[1] = mlx_new_window(id[0], 1200, 1100, "LR_chart");
 	ft_display0(id, fv, fdb);
-	//mlx_key_hook(id[1], ft_up_shell, fv);
 	ft_userprice(fv);
 	ft_display1(id, fv);
 	mlx_hook(id[1], 17, 0, ft_exit, id);

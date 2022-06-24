@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 20:59:44 by anthonylamb       #+#    #+#             */
-/*   Updated: 2022/06/16 23:27:08 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/24 18:13:49 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,25 +34,23 @@ void	ft_tr_userparam(void *id[2], int iv[4], int max[2], long double fv[22])
 	ft_originfix(iv);
 	max[x] = iv[xb];
 	max[y] = iv[yb];
-	printf("x = %d, y = %d\n", max[x], max[y]);
+	printf("max[x] = %d, max[y] = %d\n", max[x], max[y]);
 	ft_bzero(iv, sizeof(int) * 4);
 	ft_originfix(iv);
-	while (iv[xb] <= max[x] && iv[yb] <= max[y])
+	printf("xb = %d, yb = %d\n", iv[xb], iv[yb]);
+	while (iv[xb] <= max[x])
 	{
-		ft_originfix(iv);
-		while (iv[xb] <= max[x])
-		{
-			//if ((iv[xb] % 2) == 1)
-			mlx_pixel_put(id[0], id[1], iv[xb], max[y], 0xa009ae51);
-			iv[xa] += 1;
-		}
-		while (iv[yb] <= y)
-		{
-			//if ((y % 2) == 1)
-			mlx_pixel_put(id[0], id[1], max[x], iv[yb], 0xa009ae51);
-			iv[ya] += 1;
-		}
+		if ((iv[xb] % 3) == (iv[xb] % 2))
+			mlx_pixel_put(id[0], id[1], iv[xb], max[y], 0xa0ff9bca);
+		iv[xb] += 1;
 	}
+	while (iv[yb] >= max[y])
+	{
+		if ((iv[yb] % 3) == (iv[yb] % 2))
+			mlx_pixel_put(id[0], id[1], max[x], iv[yb], 0xa0ff9bca);
+		iv[yb] -= 1;
+	}
+	printf("iv[xb] = %d, iv[yb] = %d\n", iv[xb], iv[yb]);
 }
 
 void	ft_usrlabel(void *id[2], int iv[4], long double fv[22])
