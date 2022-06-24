@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 19:29:48 by alambert          #+#    #+#             */
-/*   Updated: 2022/05/23 13:57:04 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/24 19:08:06 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 char	*ft_malgets(int buf)
 {
 	char	*save;
-	int	len;
-	
+	int		len;
+
 	save = malloc(sizeof(char) * (buf + 1));
 	if (!save)
 		return (NULL);

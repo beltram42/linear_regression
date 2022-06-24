@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:48:14 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/08 15:08:50 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/24 19:10:38 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_userprice(long double fv[22])
 	char	*endptr;
 
 	printf("please enter #km from 0 to 396270:\n");
-	str = ft_malgets(6);
+	str = ft_malgets(7);
 	endptr = str;
 	fv[userkm] = ft_strtol(str, &endptr, 10);
 	if (endptr == str || fv[userkm] > 396270)

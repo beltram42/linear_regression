@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 20:59:44 by anthonylamb       #+#    #+#             */
-/*   Updated: 2022/06/16 21:21:36 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/24 18:54:31 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ void	ft_originfix(int iv[4])
 
 void	ft_tr_landmark(void *id[2], int iv[4])
 {
-	ft_bzero(iv, sizeof(int) * 4);
 	while (iv[ya] <= 900)
 	{
 		ft_originfix(iv);
-		mlx_pixel_put(id[0], id[1], iv[xb], iv[yb], 0xa0ffffff);
+		if ((iv[ya] % 2) == 0)
+			mlx_pixel_put(id[0], id[1], iv[xb], iv[yb], 0xa0ffffff);
 		if (iv[ya] > 0 && iv[yb] == (iv[yb] / 100) * 100)
 		{
 			mlx_pixel_put(id[0], id[1], iv[xb] - 1, iv[yb], 0xa0ffffff);
@@ -51,7 +51,8 @@ void	ft_tr_landmark(void *id[2], int iv[4])
 	while (iv[xa] <= 1000)
 	{
 		ft_originfix(iv);
-		mlx_pixel_put(id[0], id[1], iv[xb], iv[yb], 0xa0ffffff);
+		if (iv[xa] % 2 == 0)
+			mlx_pixel_put(id[0], id[1], iv[xb], iv[yb], 0xa0ffffff);
 		if (iv[xa] > 0 && iv[xb] == (iv[xb] / 100) * 100)
 		{
 			mlx_pixel_put(id[0], id[1], iv[xb], iv[yb] - 1, 0xa0ffffff);
@@ -119,4 +120,3 @@ void	ft_tr_line(void *id[2], int iv[4], long double fv[22])
 		iv[xa] += 1;
 	}
 }
-
