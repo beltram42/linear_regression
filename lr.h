@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:04:32 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/16 17:34:00 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/27 22:09:49 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,20 @@ void	ft_getdata(long double fdb[9][24]);
 void	ft_dset(long double fdb[9][24], long double fv[22]);
 void	ft_grad_dsc(long double fdb[9][24], long double fv[22]);
 void	ft_regr(long double fdb[9][24], long double fv[22]);
-void	ft_corr_coeff(long double fdb[9][24], long double fv[22]);
+void	ft_corr_ratio(long double fdb[9][24], long double fv[22]);
 void	ft_display0(void *id[2], long double fv[22], long double fdb[9][24]);
 void	ft_originfix(int iv[4]);
 void	ft_tr_landmark(void *id[2], int iv[4]);
 void	ft_labels(void *id[2], int iv[4]);
 void	ft_tr_dots(void *id[2], int iv[4], long double fdb[9][24]);
 void	ft_tr_line(void *id[2], int iv[4], long double fv[22]);
-int		ft_up_shell(long double fv[22]);
+void	ft_userkmparsing(long double fv[22]);
 void	ft_userprice(long double fv[22]);
 void	ft_display1(void *id[2], long double fv[22]);
 void	ft_usrlabel(void *id[2], int iv[4], long double fv[22]);
 void	ft_tr_userparam(void *id[2], int iv[4], int max[2], long double fv[22]);
-void	ft_42lr(long double fdb[9][24], long double fv[22]);
+void	ft_tr_line2(void *id[2], int iv[4], long double fv[22]);
+void	ft_display2(void *id[2], long double fv[22]);
+int		ft_manage_input(int key, void *id[2]);
 int		ft_exit(void *id[2]);
 #endif

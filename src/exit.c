@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 23:43:50 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/27 22:32:21 by alambert         ###   ########.fr       */
+/*   Created: 2022/06/27 14:42:09 by alambert          #+#    #+#             */
+/*   Updated: 2022/06/27 15:22:07 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib42.h"
+#include "../lr.h"
+#include "../myenums.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_manage_input(int key, void *id[2])
 {
-	const char	*p;
+	if (key == XK_Escape)
+		ft_exit(id);
+	return (0);
+}
 
-	if (s)
-	{
-		p = s;
-		while (*p)
-			p++;
-	}
-	return (p - s);
+int	ft_exit(void *id[2])
+{
+	mlx_clear_window(id[0], id[1]);
+	mlx_destroy_window(id[0], id[1]);
+	mlx_destroy_display(id[0]);
+	free(id[0]);
+	exit(EXIT_SUCCESS);
+	return (0);
 }

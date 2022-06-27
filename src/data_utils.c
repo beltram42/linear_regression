@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 18:18:37 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/10 17:06:05 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/27 22:09:47 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	ft_dset(long double fdb[9][24], long double fv[22])
 	fv[learning_rate] = 0.015;
 }
 
-void	ft_corr_coeff(long double fdb[9][24], long double fv[22])
+void	ft_corr_ratio(long double fdb[9][24], long double fv[22])
 {
 	long double	fr[5];
 	int			j;

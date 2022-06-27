@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 20:59:44 by anthonylamb       #+#    #+#             */
-/*   Updated: 2022/06/24 18:54:31 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/27 22:07:11 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	ft_tr_line(void *id[2], int iv[4], long double fv[22])
 	{
 		iv[ya] = (int)((fv[t0] + (fv[t1] * iv[xa] * 500)) / 10);
 		ft_originfix(iv);
-		mlx_pixel_put(id[0], id[1], iv[xb], iv[yb], 0xa009ae51);
+		mlx_pixel_put(id[0], id[1], iv[xb], iv[yb], 0xa0ffffff);
 		iv[xa] += 1;
 	}
 }

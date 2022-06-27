@@ -6,21 +6,37 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 14:35:14 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/24 16:11:17 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/27 22:10:09 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lr.h"
 #include "myenums.h"
 
-int	ft_exit(void *id[2])
+void	ft_1stpartprint(long double fdb[9][24], long double fv[22])
 {
-	mlx_clear_window(id[0], id[1]);
-	mlx_destroy_window(id[0], id[1]);
-	mlx_destroy_display(id[0]);
-	free(id[0]);
-	exit(EXIT_SUCCESS);
-	return (0);
+	printf("\n\n\n\n       ################################\n");
+	printf("       #  PART 1: GENUINE REGRESSION  #\n");
+	printf("       ################################\n\n");
+	printf("From classical linear regression calculus, we get:\n\n");
+	printf("theta0: %Lf, theta1: %Lf\n", fv[t0], fv[t1]);
+	printf("=> y = %Lfx + %Lf\n\n", fv[t1], fv[t0]);
+	ft_corr_ratio(fdb, fv);
+	printf("Our correlation ratio [0,1]: rho = %Lf\n", ft_absld(fv[r]));
+	printf("=> dependability = %Lf %%", (ft_absld(fv[r])) * 100);
+	printf("\n\n\n\n       ############################\n");
+	printf("       #  ESTIMATE W/ USER INPUT  #\n");
+	printf("       ############################\n\n");
+}
+
+void	ft_2ndpartprint(long double fv[22])
+{
+	printf("\n\n\n\n       ############################\n");
+	printf("       #  PART 2: MODEL TRAINING  #\n");
+	printf("       ############################\n\n");
+	fv[t0] = 0;
+	fv[t1] = 0;
+	printf("theta0: %Lf, theta1: %Lf\n\n", fv[t0], fv[t1]);
 }
 
 int	main(void)
@@ -34,96 +50,20 @@ int	main(void)
 	ft_set0(fdb, fv);
 	ft_getdata(fdb);
 	ft_dset(fdb, fv);
-	printf("fv[t0] = %Lf\n", fv[t0]);
-	printf("fv[t1] = %Lf\n", fv[t1]);
-	printf("\n");
-	ft_corr_coeff(fdb, fv);
-	printf("fv[r] = %Lf\n", fv[r]);
-	printf("\n");
+	ft_1stpartprint(fdb, fv);
 	id[0] = mlx_init();
 	id[1] = mlx_new_window(id[0], 1200, 1100, "LR_chart");
 	ft_display0(id, fv, fdb);
+	mlx_key_hook(id[1], ft_manage_input, id);
 	ft_userprice(fv);
 	ft_display1(id, fv);
-	mlx_hook(id[1], 17, 0, ft_exit, id);
-	//mlx_key_hook(id[1], ft_exit, id);
-	mlx_loop(id[0]);
-	return (0);
-}
-
-	//ft_42lr(fdb, fv);
-	/*
+	ft_2ndpartprint(fv);
 	ft_regr(fdb, fv);
-	fv[final_b] = fv[tt1] * 10000.0;
-	fv[k_predict] = 10.0;
-	printf("fv[costa] = %Lf\n", fv[costa]);
-	printf("fv[costb] = %Lf\n", fv[costb]);
-	printf("fv[costc] = %Lf\n", fv[costc]);
-	printf("fv[final_b] = %Lf\n", fv[final_b]);
-	printf("fv[dtt0] = %Lf\n", fv[dtt0]);
-	printf("fv[dtt1] = %Lf\n", fv[dtt1]);
-	printf("fv[tt0] = %Lf\n", fv[tt0]);
-	printf("fv[tt1] = %Lf\n", fv[tt1]);
-	printf("lf[userkm] = %Lf\n", fv[userkm]);
-	printf("lf[userprice] = %Lf\n", fv[userprice]);
-
-	
-	id[0] = mlx_init();
-	id[1] = mlx_new_window(id[0], 1200, 1100, "LR_chart");
-	ft_display0(id, fv, fdb);
-	mlx_key_hook(id[1], ft_up_shell, fv);
-	ft_display1(id, fv);
+	fv[t0] = fv[tt0] * 10000.0;
+	fv[t1] = fv[tt1];
+	printf("theta0: %Lf, theta1: %Lf\n\n", fv[t0], fv[t1]);
+	ft_display2(id, fv);
 	mlx_hook(id[1], 17, 0, ft_exit, id);
-	mlx_key_hook(id[1], ft_exit, id);
 	mlx_loop(id[0]);
-	*/
-
-/*while (i < 24)
-	{
-		printf("fdb[km][%d] = %Lf\n", i, fdb[km][i]);
-		printf("fdb[price]][%d] = %Lf\n", i, fdb[price][i]);
-		printf("fdb[k][%d] = %Lf\n", i, fdb[k][i]);
-		printf("fdb[p][%d] = %Lf\n", i, fdb[p][i]);
-		printf("fdb[prod][%d] = %Lf\n", i, fdb[prod][i]);
-		printf("fdb[sqkm][%d] = %Lf\n", i, fdb[sqkm][i]);
-		printf("fdb[sqprice]][%d] = %Lf\n", i, fdb[sqprice][i]);
-		printf("fdb[sqxmgap]][%d] = %Lf\n", i, fdb[sqxmgap][i]);
-		printf("fdb[sqymgap]][%d] = %Lf\n", i, fdb[sqymgap][i]);
-		printf("\n");
-		i++;
-	}
-	printf("\n");
-	printf("fv[sumkm] = %Lf\n", fv[sumkm]);
-	printf("fv[sumprice] = %Lf\n", fv[sumprice]);
-	printf("fv[sumprod] = %Lf\n", fv[sumprod]);
-	printf("fv[sumsqkm] = %Lf\n", fv[sumsqkm]);
-	printf("fv[sumsqprice] = %Lf\n", fv[sumsqprice]);
-	printf("\n");
-	printf("fv[k_predict] = %Lf\n", fv[k_predict]);
-	printf("fv[learning_rate] = %Lf\n", fv[learning_rate]);
-	printf("fv[meank] = %Lf\n", fv[meank]);
-	printf("fv[meanp] = %Lf\n", fv[meanp]);
-	*/
-
-/*
-int	ft_exit_shell(void *id[2])
-{
-	
 	return (0);
 }
-
-int	esc_singleton(void);
-
-
-void	*ft_mlx(void)
-{
-	static void	*mlx_ptr = (void *)0;
-
-	if (!mlx_ptr)
-	{
-		id[0] = mlx_init();
-		id[1] = mlx_new_window(id[0], 1200, 1100, "LR_chart");
-	}
-	return (mlx_ptr);
-}
-*/
