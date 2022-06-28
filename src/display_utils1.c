@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 20:59:44 by anthonylamb       #+#    #+#             */
-/*   Updated: 2022/06/28 14:59:51 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/28 21:21:36 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ void	ft_tr_userparam(void *id[2], int iv[4], int max[2], long double fv[22])
 		iv[yb] -= 1;
 	}
 }
-
-void	ft_pricelabel(long double fv[22], char *res[30], char **p)
+/*
+void	ft_pricelabel(long double fv[22], char **p)
 {
 	char	*o;
 	char	*q;
@@ -58,7 +58,7 @@ void	ft_pricelabel(long double fv[22], char *res[30], char **p)
 
 	o = "* $";
 	o += 3;
-		while (*o != '*')
+	while (*o != '*')
 		**p-- = *o--;
 	ft_memset(s, ' ', 11);
 	ft_itoav((int)fv[userprice], s);
@@ -67,7 +67,7 @@ void	ft_pricelabel(long double fv[22], char *res[30], char **p)
 		**p-- = *q--;
 }
 
-void	ft_kmlabel(long double fv[22], char *res[30], char **p)
+void	ft_kmlabel(long double fv[22], char **p)
 {
 	char	*o;
 	char	*q;
@@ -89,51 +89,55 @@ void	ft_usrlabel(void *id[2], int iv[4], long double fv[22])
 	char	res[30];
 	char	*p;
 
-	*p = res + 30;
-	ft_pricelabel(fv, res, &p);
-	ft_kmlabel(fv, res, &p);
+	ft_memset(res, ' ', 29);
+	p = res + 30;
+	ft_pricelabel(fv, &p);
+	ft_kmlabel(fv, &p);
 	printf("res = >%s<", p);
 	iv[xa] = fv[userkm] / 500;
 	iv[ya] = fv[userprice] / 10;
 	ft_originfix(iv);
 	mlx_string_put(id[0], id[1], iv[xb] + 5, iv[yb] - 5, 0xa0cda1b6, res);
 }
+*/
 
-/*
-void	ft_usrlabel(void *id[2], int iv[4], long double fv[22])
+void	ft_labeldisplay(void *id[2], int iv[4], long double fv[22], char **p)
+{
+	iv[xa] = fv[userkm] / 500;
+	iv[ya] = fv[userprice] / 10;
+	ft_originfix(iv);
+	mlx_string_put(id[0], id[1], iv[xb] + 5, iv[yb] - 5, 0xa0cda1b6, *p);
+}
+
+void	ft_usrlabel(void *id[2], int iv[4], long double fv[22], char *units)
 {
 	char	s[12];
 	char	res[30];
-	char	*o;
 	char	*p;
 	char	*q;
 
-	o = "* km, * $";
-	o += 9;
-	p = res + 30;
-	while (*o != '*')
-		*p-- = *o--;
+	units += 9;
+	ft_memset(res, ' ', 30);
+	p = res + 29;
+	while (*units != '*')
+		*p-- = *units--;
 	ft_memset(s, ' ', 11);
 	ft_itoav((int)fv[userprice], s);
-	q = s + 11;
+	q = s + 10;
 	while (*q != ' ')
 		*p-- = *q--;
-	o--;
-	while (*o != '*')
-		*p-- = *o--;
+	units--;
+	while (*units != '*')
+		*p-- = *units--;
 	ft_memset(s, ' ', 11);
 	ft_itoav((int)fv[userkm], s);
-	q = s + 11;
+	q = s + 10;
 	while (*q != ' ')
 		*p-- = *q--;
-	printf("res = >%s<", p);
-	iv[xa] = fv[userkm] / 500;
-	iv[ya] = fv[userprice] / 10;
-	ft_originfix(iv);
-	mlx_string_put(id[0], id[1], iv[xb] + 5, iv[yb] - 5, 0xa0cda1b6, res);
+	ft_labeldisplay(id, iv, fv, &p);
 }
 
-
+/*
 void	ft_usrlabel(void *id[2], int iv[4], long double fv[22])
 {
 	char	*s1;

@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:45:00 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/28 12:04:00 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/28 21:32:49 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int			ft_isupper(int c);
 char		*ft_itoa(int n);
 void		ft_itoav(int i, char buf[12]);
 char		*ft_malgets(int buf);
-char		*ft_malmove(const char *dest,const char *src, int len1, int len2);
+char		*ft_malmove(const char *dest, const char *src, int len1, int len2);
 void		*ft_memchr(const void *s, int c, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 void		*ft_memcpy(void *dst, const void *scr, size_t n);
@@ -98,14 +98,14 @@ typedef struct s_list
 	struct s_list	*next;
 }			t_list;
 
-void	ft_lstadd_back(t_list **alst, t_list *new);
-void	ft_lstadd_front(t_list **alst, t_list *new);
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-t_list	*ft_lstnew(void *content);
-int		ft_lstsize(t_list *lst);
+void		ft_lstadd_back(t_list **alst, t_list *new);
+void		ft_lstadd_front(t_list **alst, t_list *new);
+void		ft_lstclear(t_list **lst, void (*del)(void *));
+void		ft_lstdelone(t_list *lst, void (*del)(void *));
+void		ft_lstiter(t_list *lst, void (*f)(void *));
+t_list		*ft_lstlast(t_list *lst);
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list		*ft_lstnew(void *content);
+int			ft_lstsize(t_list *lst);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:34:35 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/27 21:32:05 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/28 21:23:07 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,13 @@ void	ft_display1(void *id[2], long double fv[22])
 {
 	int		iv[4];
 	int		max[2];
+	char	*units;
 
+	units = "* km, * $";
 	ft_bzero(iv, sizeof(int) * 4);
 	ft_bzero(max, sizeof(int) * 2);
 	ft_tr_userparam(id, iv, max, fv);
-	ft_usrlabel(id, iv, fv);
+	ft_usrlabel(id, iv, fv, units);
 }
 
 void	ft_display2(void *id[2], long double fv[22])
