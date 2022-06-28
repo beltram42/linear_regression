@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:45:00 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/13 10:49:51 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/28 12:04:00 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int			ft_isprint(int c);
 int			ft_isspace(int c);
 int			ft_isupper(int c);
 char		*ft_itoa(int n);
+void		ft_itoav(int i, char buf[12]);
 char		*ft_malgets(int buf);
 char		*ft_malmove(const char *dest,const char *src, int len1, int len2);
 void		*ft_memchr(const void *s, int c, size_t n);

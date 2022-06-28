@@ -6,7 +6,7 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/24 18:46:28 by alambert          #+#    #+#              #
-#    Updated: 2022/06/13 10:49:03 by alambert         ###   ########.fr        #
+#    Updated: 2022/06/28 12:04:44 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ FILES = ft_absf.c \
 		ft_isspace.c \
 		ft_isupper.c \
 		ft_itoa.c \
+		ft_itoav.c \
 		ft_lstadd_back.c \
 		ft_lstadd_front.c\
 		ft_lstclear.c \
