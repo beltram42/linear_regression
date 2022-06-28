@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 20:59:44 by anthonylamb       #+#    #+#             */
-/*   Updated: 2022/06/28 14:47:23 by alambert         ###   ########.fr       */
+/*   Updated: 2022/06/28 14:59:51 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_tr_userparam(void *id[2], int iv[4], int max[2], long double fv[22])
 	}
 }
 
-void	ft_pricelabel(long double fv[22], char res[30], char **p)
+void	ft_pricelabel(long double fv[22], char *res[30], char **p)
 {
 	char	*o;
 	char	*q;
@@ -58,8 +58,7 @@ void	ft_pricelabel(long double fv[22], char res[30], char **p)
 
 	o = "* $";
 	o += 3;
-	*p = res + 30;
-	while (*o != '*')
+		while (*o != '*')
 		**p-- = *o--;
 	ft_memset(s, ' ', 11);
 	ft_itoav((int)fv[userprice], s);
@@ -68,7 +67,7 @@ void	ft_pricelabel(long double fv[22], char res[30], char **p)
 		**p-- = *q--;
 }
 
-void	ft_kmlabel(long double fv[22], char res[30], char **p)
+void	ft_kmlabel(long double fv[22], char *res[30], char **p)
 {
 	char	*o;
 	char	*q;
@@ -87,12 +86,10 @@ void	ft_kmlabel(long double fv[22], char res[30], char **p)
 
 void	ft_usrlabel(void *id[2], int iv[4], long double fv[22])
 {
-	char	s[12];
 	char	res[30];
-	char	*o;
 	char	*p;
-	char	*q;
 
+	*p = res + 30;
 	ft_pricelabel(fv, res, &p);
 	ft_kmlabel(fv, res, &p);
 	printf("res = >%s<", p);
