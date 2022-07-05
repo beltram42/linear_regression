@@ -6,14 +6,14 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:48:14 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/27 22:02:51 by alambert         ###   ########.fr       */
+/*   Updated: 2022/07/05 21:10:03 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lr.h"
 #include "../myenums.h"
 
-void	ft_userkmparsing(long double fv[22])
+void	ft_useroutofrangekm(long double fv[22], int sw[1])
 {
 	if (fv[userkm] < 0)
 	{
@@ -21,6 +21,7 @@ void	ft_userkmparsing(long double fv[22])
 		fv[userkm] = 0;
 		fv[userprice] = 8499;
 		printf("\nCar price for 0 km is: 8499 $");
+		sw[0] = 1;
 	}
 	else
 	{
@@ -28,11 +29,20 @@ void	ft_userkmparsing(long double fv[22])
 		fv[userkm] = 396271;
 		fv[userprice] = 0;
 		printf("\nCar price for more than 396271 km is: 0 $");
+		sw[0] = 1;
 	}
 	return ;
 }
 
-void	ft_userprice(long double fv[22])
+void	ft_usermaincase(long double fv[22], int sw[1])
+{
+	printf("\nkm# is in the range\n\n");
+	fv[userprice] = fv[t0] + (fv[t1] * fv[userkm]);
+	printf("Price for %d km is: %d $", (int)fv[userkm], (int)fv[userprice]);
+	sw[0] = 1;
+}
+
+void	ft_priceshell(long double fv[22], int sw[1])
 {
 	char	*str;
 	char	*endptr;
@@ -41,16 +51,29 @@ void	ft_userprice(long double fv[22])
 	str = ft_malgets(7);
 	endptr = str;
 	fv[userkm] = ft_strtol(str, &endptr, 10);
-	if (endptr == str || fv[userkm] < 0 || fv[userkm] > 396270)
+	if (endptr == str)
 	{
-		ft_userkmparsing(fv);
+		printf("\033[\n0;31mWrong format. Only digits please.\033[0m\n\n");
+		str = ft_free(&str);
+		sw[0] = 0;
+	}
+	else if (fv[userkm] < 0 || fv[userkm] > 396270)
+	{
+		ft_useroutofrangekm(fv, sw);
 		str = ft_free(&str);
 	}
 	else
 	{
-		printf("\nkm# is in the range\n\n");
+		ft_usermaincase(fv, sw);
 		str = ft_free(&str);
-		fv[userprice] = fv[t0] + (fv[t1] * fv[userkm]);
-		printf("Price for %d km is: %d $", (int)fv[userkm], (int)fv[userprice]);
 	}
+}
+
+void	ft_userprice(long double fv[22])
+{
+	int	sw[1];
+
+	sw[0] = 0;
+	while (sw[0] == 0)
+		ft_priceshell(fv, sw);
 }

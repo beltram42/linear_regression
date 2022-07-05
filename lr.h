@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:04:32 by alambert          #+#    #+#             */
-/*   Updated: 2022/06/28 21:22:42 by alambert         ###   ########.fr       */
+/*   Updated: 2022/07/05 21:11:49 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,12 @@ void	ft_tr_landmark(void *id[2], int iv[4]);
 void	ft_labels(void *id[2], int iv[4]);
 void	ft_tr_dots(void *id[2], int iv[4], long double fdb[9][24]);
 void	ft_tr_line(void *id[2], int iv[4], long double fv[22]);
-void	ft_userkmparsing(long double fv[22]);
+void	ft_useroutofragekm(long double fv[22], int sw[1]);
+void	ft_usermaincase(long double fv[22], int sw[1]);
+void	ft_priceshell(long double fv[22], int sw[1]);
 void	ft_userprice(long double fv[22]);
 void	ft_display1(void *id[2], long double fv[22]);
-void	ft_usrlabel(void *id[2], int iv[4], long double fv[22], char *units);
+void	ft_usrlabel(void *id[2], int iv[4], long double fv[22]);
 void	ft_tr_userparam(void *id[2], int iv[4], int max[2], long double fv[22]);
 void	ft_tr_line2(void *id[2], int iv[4], long double fv[22]);
 void	ft_display2(void *id[2], long double fv[22]);
