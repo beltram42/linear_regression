@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 19:29:48 by alambert          #+#    #+#             */
-/*   Updated: 2022/07/05 21:15:01 by alambert         ###   ########.fr       */
+/*   Updated: 2022/07/06 15:26:58 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ char	*ft_malgets(int buf)
 			len = read(0, bin, 1);
 		bin = ft_free(&bin);
 	}
+	if (bin)
+		ft_free(&bin);
 	return ((char *)save);
 }
