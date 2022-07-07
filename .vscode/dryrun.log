@@ -1,0 +1,15 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/mnt/nfs/homes/alambert/Documents/linear_regression'
+clang  -g3 -Wall -Wextra -Werror -D SECONDS=20 -c lr.c -o lr.o
+clang  -g3 -Wall -Wextra -Werror -D SECONDS=20 -c src/data_utils.c -o src/data_utils.o
+clang  -g3 -Wall -Wextra -Werror -D SECONDS=20 -c src/display_utils0.c -o src/display_utils0.o
+clang  -g3 -Wall -Wextra -Werror -D SECONDS=20 -c src/display_utils1.c -o src/display_utils1.o
+clang  -g3 -Wall -Wextra -Werror -D SECONDS=20 -c src/exit.c -o src/exit.o
+clang  -g3 -Wall -Wextra -Werror -D SECONDS=20 -c src/regression_utils.c -o src/regression_utils.o
+clang  -g3 -Wall -Wextra -Werror -D SECONDS=20 -c src/display.c -o src/display.o
+clang  -g3 -Wall -Wextra -Werror -D SECONDS=20 -c src/user_utils.c -o src/user_utils.o
+make re -C ./mlx
+make re -C ./lib42
+clang  -g3 -Wall -Wextra -Werror -D SECONDS=20 -ldl -lmlx -Lmlx -lm -lXext -lX11 -L/usr/lib/aarch64 -Imlx mlx/libmlx.a lr.o ./src/data_utils.o ./src/display_utils0.o ./src/display_utils1.o ./src/exit.o ./src/regression_utils.o ./src/display.o ./src/user_utils.o -Llib42 ./lib42/lib42.a -o lr ./mlx/libmlx.a
+make: Leaving directory '/mnt/nfs/homes/alambert/Documents/linear_regression'
+ 

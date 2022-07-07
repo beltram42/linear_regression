@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:48:14 by alambert          #+#    #+#             */
-/*   Updated: 2022/07/05 21:10:03 by alambert         ###   ########.fr       */
+/*   Updated: 2022/07/07 16:16:21 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_useroutofrangekm(long double fv[22], int sw[1])
 void	ft_usermaincase(long double fv[22], int sw[1])
 {
 	printf("\nkm# is in the range\n\n");
-	fv[userprice] = fv[t0] + (fv[t1] * fv[userkm]);
+	fv[userprice] = fv[tt0] + (fv[tt1] * fv[userkm]);
 	printf("Price for %d km is: %d $", (int)fv[userkm], (int)fv[userprice]);
 	sw[0] = 1;
 }
@@ -57,7 +57,7 @@ void	ft_priceshell(long double fv[22], int sw[1])
 		str = ft_free(&str);
 		sw[0] = 0;
 	}
-	else if (fv[userkm] < 0 || fv[userkm] > 396270)
+	else if ((fv[userkm] < 0 || fv[userkm] > 396270) && (fv[tt1] != 0))
 	{
 		ft_useroutofrangekm(fv, sw);
 		str = ft_free(&str);
