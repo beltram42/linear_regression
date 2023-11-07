@@ -6,6 +6,7 @@ clang  -g3 -Wall -Wextra -Werror -D SECONDS=20 -c src/display_utils0.c -o src/di
 clang  -g3 -Wall -Wextra -Werror -D SECONDS=20 -c src/display_utils1.c -o src/display_utils1.o
 clang  -g3 -Wall -Wextra -Werror -D SECONDS=20 -c src/exit.c -o src/exit.o
 clang  -g3 -Wall -Wextra -Werror -D SECONDS=20 -c src/regression_utils.c -o src/regression_utils.o
+ 
 clang  -g3 -Wall -Wextra -Werror -D SECONDS=20 -c src/display.c -o src/display.o
 clang  -g3 -Wall -Wextra -Werror -D SECONDS=20 -c src/user_utils.c -o src/user_utils.o
 make re -C ./mlx

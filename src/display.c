@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:34:35 by alambert          #+#    #+#             */
-/*   Updated: 2022/07/07 15:50:13 by alambert         ###   ########.fr       */
+/*   Updated: 2022/07/05 21:10:12 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,4 @@ void	ft_display2(void *id[2], long double fv[22])
 	int		iv[4];
 
 	ft_tr_line2(id, iv, fv);
-}
-
-void	ft_display3(void *id[2], long double fv[22])
-{
-	int		iv[4];
-	int		max[2];
-
-	ft_bzero(iv, sizeof(int) * 4);
-	ft_bzero(max, sizeof(int) * 2);
-	ft_tr_userparam(id, iv, max, fv);
-	ft_usrlabel(id, iv, fv);
 }
